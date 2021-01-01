@@ -1,0 +1,18 @@
+<!-- <p>todos works!</p> -->
+
+<div>
+    <form action ="#" (ngSubmit) = "onAdd()"class="form">
+        <mat-form-field class="full-width">
+            <mat-label>Add To do</mat-label>
+            <input matInput placeholder="Ex. I need to go to hospital this week..." name="input" [(ngModel)]="input">
+            <button class="button-row">Submit</button>
+        </mat-form-field>
+    </form>
+    <div *ngFor="let tdo of todo; let i= index;">
+       <input type="checkbox" name="completed" [checked]="tdo.completed">
+      <span *ngIf="!tdo.completed">{{tdo.content}}</span>  
+      <span *ngIf="tdo.completed">{{tdo.content}}</span> 
+     <button class="button" (click) ="onDelete(i)"> Remove </button>  
+    </div>
+
+</div>
